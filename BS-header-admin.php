@@ -14,17 +14,14 @@
                     <!-- <li class="nav-item">
                         <a class="nav-link" href="detail.html">Product detail</a>
                     </li> -->
-                    <!-- <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" id="pagesDropdown" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Pages
-                        </a>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" id="pagesDropdown" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">管理</a>
                         <div class="dropdown-menu mt-3" aria-labelledby="pagesDropdown">
-                            <a class="dropdown-item border-0 transition-link" href="index.html">Homepage</a>
-                            <a class="dropdown-item border-0 transition-link" href="shop.html">Category</a>
-                            <a class="dropdown-item border-0 transition-link" href="detail.html">Product detail</a>
-                            <a class="dropdown-item border-0 transition-link" href="cart.html">Shopping cart</a>
-                            <a class="dropdown-item border-0 transition-link" href="checkout.html">Checkout</a>
+                            <a class="dropdown-item border-0 transition-link" href="addItem.php">新增商品</a>
+                            <a class="dropdown-item border-0 transition-link" href="addEvent.php">新增活動</a>
+                            <a class="dropdown-item border-0 transition-link" href="detail.html"></a>
                         </div>
-                    </li> -->
+                    </li>
                 </ul>
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
@@ -44,9 +41,9 @@
                             </small></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="./loginPage.php">
+                        <a class="nav-link" href="./logout.php">
                             <i class="fas fa-user-alt mr-1 text-gray"></i>
-                            登入
+                            登出
                         </a>
                     </li>
                 </ul>
