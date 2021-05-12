@@ -107,7 +107,7 @@
                 </div>
                 <div class="col-lg-6 form-group">
                   <label class="text-small text-uppercase" for="lastName">密碼</label>
-                  <input class="form-control form-control-lg" name="pwd" id="lastName" type="text" placeholder="請輸入密碼">
+                  <input class="form-control form-control-lg" name="pwd" id="lastName" type="password" placeholder="請輸入密碼">
                 </div>
                 <div class="col-lg-12 form-group">
                   <input class="btn btn-dark" type="submit" value="登入">
