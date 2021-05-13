@@ -66,83 +66,92 @@ require_once("../template-cart/func-getRecursiveCategoryIds.php");
                             </ul>
                         </div>
                     </div>
-                    <div class="row">
+                    <div class="">
                         <!-- PRODUCT-->
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th class="py-2 px-3 bg-dark text-white text-center"><strong class="small text-uppercase font-weight-bold">商品照片</strong></th>
+                                    <th class="py-2 px-3 bg-dark text-white text-center"><strong class="small text-uppercase font-weight-bold">商品名稱</strong></th>
+                                    <th class="py-2 px-3 bg-dark text-white text-center"><strong class="small text-uppercase font-weight-bold">商品價格</strong></th>
+                                    <th class="py-2 px-3 bg-dark text-white text-center"><strong class="small text-uppercase font-weight-bold">商品數量</strong></th>
+                                    <th class="py-2 px-3 bg-dark text-white text-center"><strong class="small text-uppercase font-weight-bold">商品種類</strong></th>
+                                    <th class="py-2 px-3 bg-dark text-white text-center"><strong class="small text-uppercase font-weight-bold">新增時間</strong></th>
+                                    <th class="py-2 px-3 bg-dark text-white text-center"><strong class="small text-uppercase font-weight-bold">更新時間</strong></th>
+                                    <th class="py-2 px-3 bg-dark text-white text-center"><strong class="small text-uppercase font-weight-bold">功能</strong></th>
+                                </tr>
 
-                        <?php
-                        if (isset($_GET['categoryId'])) {
-                            $strCategoryIds = "";;
-                            $strCategoryIds .= $_GET['categoryId'];
-                            getRecursiveCategoryIds($pdo, $_GET['categoryId']);
-                        }
 
-                        //SQL 敘述
-                        $sql = "SELECT `items`.`itemId`, `items`.`itemName`, `items`.`itemImg`, `items`.`itemPrice`, `items`.`itemQty`, `items`.`itemCategoryId`, `items`.`created_at`, `items`.`updated_at`, `categories`.`categoryName`
+                            </thead>
+                            <tbody>
+
+                                <?php
+                                if (isset($_GET['categoryId'])) {
+                                    $strCategoryIds = "";;
+                                    $strCategoryIds .= $_GET['categoryId'];
+                                    getRecursiveCategoryIds($pdo, $_GET['categoryId']);
+                                }
+
+                                //SQL 敘述
+                                $sql = "SELECT `items`.`itemId`, `items`.`itemName`, `items`.`itemImg`, `items`.`itemPrice`, `items`.`itemQty`, `items`.`itemCategoryId`, `items`.`created_at`, `items`.`updated_at`, `categories`.`categoryName`
                                 FROM `items` INNER JOIN `categories`
                                 ON `items`.`itemCategoryId` = `categories`.`categoryId`";
 
-                        //若網址有商品種類編號，則整合字串來操作 SQL 語法
-                        if (isset($_GET['categoryId'])) {
-                            $sql .= "WHERE `items`.`itemCategoryId` in ({$strCategoryIds})";
-                        }
+                                //若網址有商品種類編號，則整合字串來操作 SQL 語法
+                                if (isset($_GET['categoryId'])) {
+                                    $sql .= "WHERE `items`.`itemCategoryId` in ({$strCategoryIds})";
+                                }
 
-                        $sql .= "ORDER BY `items`.`itemId` ASC ";
+                                $sql .= "ORDER BY `items`.`itemId` ASC ";
 
-                        //查詢分頁後的商品資料
-                        $stmt = $pdo->prepare($sql);
-                        $stmt->execute();
+                                //查詢分頁後的商品資料
+                                $stmt = $pdo->prepare($sql);
+                                $stmt->execute();
 
-                        //若商品項目個數大於 0，則列出商品
-                        if ($stmt->rowCount() > 0) {
-                            $arr = $stmt->fetchAll(PDO::FETCH_ASSOC);
-                            for ($i = 0; $i < count($arr); $i++) {
-                        ?>
-                                <div class="col-lg-4 col-sm-6">
-                                    <div class="product text-center">
-                                        <div class="mb-3 position-relative">
-                                            <div class="badge text-white badge-"></div>
-                                            <a class="d-block" href="./detail.php?itemId=<?php echo $arr[$i]['itemId']; ?>">
+                                //若商品項目個數大於 0，則列出商品
+                                if ($stmt->rowCount() > 0) {
+                                    $arr = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                                    for ($i = 0; $i < count($arr); $i++) {
+                                ?>
+                                        <tr class="product mt-4">
+
+                                            <td>
+                                                <!-- <div class="badge text-white badge-"></div> -->
                                                 <!-- 調整圖片size跟位置 -->
-                                                <img style="height: 300px; object-fit:cover;" class="img-fluid w-100" src="../images/items/<?php echo $arr[$i]['itemImg']; ?>" alt="...">
-                                            </a>
-                                            <!-- <div class="product-overlay">
-                                                <ul class="mb-0 list-inline">
-                                                    <li class="list-inline-item m-0 p-0">
-                                                        <a class="btn btn-sm btn-outline-dark" href="#">
-                                                            <i class="far fa-heart"></i>
-                                                        </a>
-                                                    </li>
-                                                    <li class="list-inline-item m-0 p-0">
-                                                        <form name="cartForm" id="cartForm" method="POST" action="./addCart.php">
-                                                            <button class="btn btn-sm btn-dark">
-                                                                Add to cart
-                                                            </button>
-                                                            <input hidden type="text" name="cartQty" id="cartQty" value="1">
-                                                            <input type="hidden" name="itemId" id="itemId" value="<?php echo $arr[$i]['itemId'] ?>">
-                                                        </form>
-                                                    </li>
-                                                    <li class="list-inline-item mr-0">
-                                                        <a class="btn btn-sm btn-outline-dark" href="#productView" data-toggle="modal">
-                                                            <i class="fas fa-expand"></i>
-                                                        </a>
-                                                    </li>
-                                                </ul>
-                                            </div> -->
-                                        </div>
-                                        <h6>
-                                            <a class="reset-anchor" href="../detail.php"><?php echo $arr[$i]['itemName']; ?></a>
-                                            |
-                                            <a class="reset-anchor" href="./edit.php?itemId=<?php echo $arr[$i]['itemId']; ?>">編輯</a>
-                                            |
-                                            <a class="reset-anchor" href="./delete.php?itemId=<?php echo $arr[$i]['itemId']; ?>">刪除</a>
-                                        </h6>
-                                        <p class="small text-muted">$<?php echo $arr[$i]['itemPrice']; ?></p>
-                                    </div>
-                                </div>
-                        <?php
-                            }
-                        }
-                        ?>
+                                                <img style="width: 100px; height: 100px; object-fit:cover;" class="img-fluid" src="../images/items/<?php echo $arr[$i]['itemImg']; ?>" alt="...">
+                                            </td>
+                                            <td class="text-center">
+                                                <span class="small text-muted"><?php echo $arr[$i]['itemName']; ?></span>
+                                            </td>
+                                            <td class="text-center">
+                                                <span class="small text-muted">$<?php echo $arr[$i]['itemPrice']; ?></span>
+                                            </td>
+                                            <td class="text-center">
+                                                <span class="small text-muted"><?php echo $arr[$i]['itemQty']; ?></span>
+                                            </td>
+                                            <td class="text-center">
+                                                <span class="small text-muted"><?php echo $arr[$i]['categoryName']; ?></span>
+                                            </td>
+                                            <td class="text-center px-2">
+                                                <span class="small text-muted"><?php echo $arr[$i]['created_at']; ?></span>
+                                            </td>
+                                            <td class="text-center px-2">
+                                                <span class="small text-muted"><?php echo $arr[$i]['updated_at']; ?></span>
+                                            </td>
+                                            <td class="text-center">
+                                                <a class="reset-anchor small" href="./edit.php?itemId=<?php echo $arr[$i]['itemId']; ?>">編輯</a>
+                                                <br>
+                                                <a class="reset-anchor small" href="./delete.php?itemId=<?php echo $arr[$i]['itemId']; ?>">刪除</a>
+                                            </td>
+                                        </tr>
+
+                                <?php
+                                    }
+                                }
+                                ?>
+
+                            </tbody>
+                        </table>
 
                     </div>
                     <!-- PAGINATION-->
