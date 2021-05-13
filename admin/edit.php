@@ -1,7 +1,7 @@
 <?php
 session_start();
-require_once('./db.inc.php');
-require_once('./BS-html-head.php');
+require_once('../db.inc.php');
+require_once('../template/BS-html-head.php');
 require_once('./BS-header-admin.php');
 // require_once("./func-buildTree.php");
 // require_once("./func-getRecursiveCategoryIds.php");
@@ -83,7 +83,7 @@ function buildTree($pdo, $parentId = 0)
                             <div class=" col-lg-12 form-group">
                                 <label class="text-small text-uppercase">上傳圖片</label>
                                 <?php if ($arr['itemImg'] !== NULL) { ?>
-                                    <img class="w200px" src="./images/items/<?php echo $arr['itemImg'] ?>" />
+                                    <img class="w200px" src="../images/items/<?php echo $arr['itemImg'] ?>" />
                                 <?php } ?>
                                 <input class="form-control form-control-lg" type="file" name="itemImg">
                             </div>
@@ -108,6 +108,6 @@ function buildTree($pdo, $parentId = 0)
     </section>
 </div>
 <?php
-require_once('./BS-footer.php');
-require_once('./BS-html-foot.php');
+require_once('../template/BS-footer.php');
+require_once('../template/BS-html-foot.php');
 ?>

@@ -1,6 +1,6 @@
 <?php
 require_once('./checkSession.php'); //引入登入判斷
-require_once('./db.inc.php'); //引用資料庫連線
+require_once('../db.inc.php'); //引用資料庫連線
 
 //回傳狀態
 $objResponse = [];
@@ -19,7 +19,7 @@ if ($_FILES["itemImg"]["error"] === 0) {
     $imgFileName = $strDatetime . "." . $extension;
 
     //移動暫存檔案到實際存放位置
-    $isSuccess = move_uploaded_file($_FILES["itemImg"]["tmp_name"], "./images/items/" . $imgFileName);
+    $isSuccess = move_uploaded_file($_FILES["itemImg"]["tmp_name"], "../images/items/" . $imgFileName);
 
     //若上傳失敗，則不會繼續往下執行，回到管理頁面
     if (!$isSuccess) {

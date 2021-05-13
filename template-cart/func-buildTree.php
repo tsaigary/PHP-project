@@ -13,7 +13,7 @@ function buildTree($pdo, $parentId = 0)
         $arr = $stmt->fetchAll(PDO::FETCH_ASSOC);
         for ($i = 0; $i < count($arr); $i++) {
             echo '<li class="mb-2">';
-            echo "<a class='reset-anchor' href='./itemList.php?categoryId={$arr[$i]['categoryId']}'>{$arr[$i]['categoryName']}</a>";
+            echo "<a class='reset-anchor' href='../admin/shop-admin.php?categoryId={$arr[$i]['categoryId']}'>{$arr[$i]['categoryName']}</a>";
             buildTree($pdo, $arr[$i]['categoryId']);
             echo "</li>";
         }

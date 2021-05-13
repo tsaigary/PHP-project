@@ -1,10 +1,10 @@
 <?php
 session_start();
 require_once('./db.inc.php');
-require_once('./BS-html-head.php');
-require_once('./BS-header.php');
-require_once("./func-buildTree.php");
-require_once("./func-getRecursiveCategoryIds.php");
+require_once('./template/BS-html-head.php');
+require_once('./template/BS-header.php');
+require_once("./template-cart/func-buildTree.php");
+require_once("./template-cart/func-getRecursiveCategoryIds.php");
 ?>
 
 <div class="container">
@@ -157,6 +157,6 @@ require_once("./func-getRecursiveCategoryIds.php");
 
 
 <?php
-require_once('./BS-footer.php');
-require_once('./BS-html-foot.php');
+require_once('./template/BS-footer.php');
+require_once('./template/BS-html-foot.php');
 ?>

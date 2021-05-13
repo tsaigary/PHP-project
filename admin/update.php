@@ -1,6 +1,6 @@
 <?php
-require_once('./checkSession.php'); //引入登入判斷
-require_once('./db.inc.php'); //引用資料庫連線
+require_once('../checkSession.php'); //引入登入判斷
+require_once('../db.inc.php'); //引用資料庫連線
 
 // echo "<pre>";
 // print_r($_POST);
@@ -54,7 +54,7 @@ if ($_FILES["itemImg"]["error"] === 0) {
             //若是 itemImg 裡面不為空值，代表過去有上傳過
             if ($arrImg[0]['itemImg'] !== NULL) {
                 //刪除實體檔案
-                @unlink("./images/items/" . $arrImg[0]['itemImg']);
+                @unlink("../images/items/" . $arrImg[0]['itemImg']);
             }
 
             //itemImg SQL 語句字串

@@ -1,10 +1,10 @@
 <?php
 session_start();
-require_once('./db.inc.php');
-require_once('./BS-html-head.php');
+require_once('../db.inc.php');
+require_once('../template/BS-html-head.php');
 require_once('./BS-header-admin.php');
-require_once("./func-buildTree.php");
-require_once("./func-getRecursiveCategoryIds.php");
+require_once("../template-cart/func-buildTree.php");
+require_once("../template-cart/func-getRecursiveCategoryIds.php");
 ?>
 
 <div class="container">
@@ -103,7 +103,7 @@ require_once("./func-getRecursiveCategoryIds.php");
                                             <div class="badge text-white badge-"></div>
                                             <a class="d-block" href="./detail.php?itemId=<?php echo $arr[$i]['itemId']; ?>">
                                                 <!-- 調整圖片size跟位置 -->
-                                                <img style="height: 300px; object-fit:cover;" class="img-fluid w-100" src="./images/items/<?php echo $arr[$i]['itemImg']; ?>" alt="...">
+                                                <img style="height: 300px; object-fit:cover;" class="img-fluid w-100" src="../images/items/<?php echo $arr[$i]['itemImg']; ?>" alt="...">
                                             </a>
                                             <div class="product-overlay">
                                                 <ul class="mb-0 list-inline">
@@ -130,7 +130,7 @@ require_once("./func-getRecursiveCategoryIds.php");
                                             </div>
                                         </div>
                                         <h6>
-                                            <a class="reset-anchor" href="detail.php"><?php echo $arr[$i]['itemName']; ?></a>
+                                            <a class="reset-anchor" href="../detail.php"><?php echo $arr[$i]['itemName']; ?></a>
                                             |
                                             <a class="reset-anchor" href="./edit.php?itemId=<?php echo $arr[$i]['itemId']; ?>">編輯</a>
                                             |
@@ -163,6 +163,6 @@ require_once("./func-getRecursiveCategoryIds.php");
 
 
 <?php
-require_once('./BS-footer.php');
-require_once('./BS-html-foot.php');
+require_once('../template/BS-footer.php');
+require_once('../template/BS-html-foot.php');
 ?>

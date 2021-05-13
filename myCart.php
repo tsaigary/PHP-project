@@ -1,9 +1,9 @@
 <?php
 session_start();
 require_once('./db.inc.php');
-require_once('./BS-html-head.php');
-require_once('./BS-header.php');
-require_once("./func-buildTree.php");
+require_once('./template/BS-html-head.php');
+require_once('./template/BS-header.php');
+require_once './template-cart/func-buildTree.php';
 // require_once("./tpl/func-getRecursiveCategoryIds.php");
 ?>
 <form name="myForm" method="POST" action="./addOrder.php">
@@ -14,12 +14,12 @@ require_once("./func-buildTree.php");
             <div class="container">
                 <div class="row px-4 px-lg-5 py-lg-4 align-items-center">
                     <div class="col-lg-6">
-                        <h1 class="h2 text-uppercase mb-0">Cart</h1>
+                        <h1 class="h2 text-uppercase mb-0">購物車</h1>
                     </div>
                     <div class="col-lg-6 text-lg-right">
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb justify-content-lg-end mb-0 px-0">
-                                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                                <li class="breadcrumb-item"><a href="index.php">Home</a></li>
                                 <li class="breadcrumb-item active" aria-current="page">Cart</li>
                             </ol>
                         </nav>
@@ -55,9 +55,7 @@ require_once("./func-buildTree.php");
                                     $_SESSION["cart"] = array_values($_SESSION["cart"]);
 
                                     //SQL 敘述
-                                    $sql = "SELECT `items`.`itemId`, `items`.`itemName`, `items`.`itemImg`, `items`.`itemPrice`, 
-                                            `items`.`itemQty`, `items`.`itemCategoryId`, `items`.`created_at`, `items`.`updated_at`,
-                                            `categories`.`categoryId`, `categories`.`categoryName`
+                                    $sql = "SELECT `items`.`itemId`, `items`.`itemName`, `items`.`itemImg`, `items`.`itemPrice`, `items`.`itemQty`, `items`.`itemCategoryId`, `items`.`created_at`, `items`.`updated_at`, `categories`.`categoryId`, `categories`.`categoryName`
                                     FROM `items` INNER JOIN `categories`
                                     ON `items`.`itemCategoryId` = `categories`.`categoryId`
                                     WHERE `itemId` = ? ";
@@ -156,6 +154,6 @@ require_once("./func-buildTree.php");
 </form>
 
 <?php
-require_once('./BS-footer.php');
-require_once('./BS-html-foot.php');
+require_once('./template/BS-footer.php');
+require_once('./template/BS-html-foot.php');
 ?>

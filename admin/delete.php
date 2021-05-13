@@ -1,6 +1,6 @@
 <?php
-require_once('./checkSession.php'); // 引入判斷是否登入機制
-require_once('./db.inc.php'); // 引用資料庫連線
+require_once('../checkSession.php'); // 引入判斷是否登入機制
+require_once('../db.inc.php'); // 引用資料庫連線
 // -------------------------刪除頭像檔案--------------------------- //
 
 // 先查詢出特定 id (editId) 資料欄位中的大頭貼檔案名稱
@@ -24,7 +24,7 @@ if ($stmtGetImg->rowCount() > 0) {
     if ($arrImg['itemImg'] !== NULL) {
         // unlink刪除實體檔案,如果找不到檔案會報錯
         // @unlink刪除實體檔案,不會報錯,找到檔案就刪除
-        @unlink("./images/items/" . $arrImg['itemImg']);
+        @unlink("../images/items/" . $arrImg['itemImg']);
     }
 }
 

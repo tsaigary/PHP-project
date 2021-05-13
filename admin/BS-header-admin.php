@@ -26,7 +26,7 @@
                 </ul>
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="myCart.php">
+                        <a class="nav-link" href="../myCart.php">
                             <i class="fas fa-dolly-flatbed mr-1 text-gray"></i>
                             購物車
                             <small class="text-gray">
@@ -42,7 +42,7 @@
                             </small></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="./logout.php">
+                        <a class="nav-link" href="../logout.php">
                             <i class="fas fa-user-alt mr-1 text-gray"></i>
                             登出
                         </a>
