@@ -154,6 +154,6 @@ require_once './template-cart/func-buildTree.php';
 </form>
 
 <?php
-require_once('./template/BS-footer.php');
+require_once('./template/footer.php');
 require_once('./template/BS-html-foot.php');
 ?>

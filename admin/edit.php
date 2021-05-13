@@ -1,7 +1,7 @@
 <?php
 session_start();
 require_once('../db.inc.php');
-require_once('../template/BS-html-head.php');
+require_once('../template/admin-html-head.php');
 require_once('./BS-header-admin.php');
 // require_once("./func-buildTree.php");
 // require_once("./func-getRecursiveCategoryIds.php");
@@ -108,6 +108,6 @@ function buildTree($pdo, $parentId = 0)
     </section>
 </div>
 <?php
-require_once('../template/BS-footer.php');
-require_once('../template/BS-html-foot.php');
+require_once('../template/footer.php');
+require_once('../template/admin-html-foot.php');
 ?>

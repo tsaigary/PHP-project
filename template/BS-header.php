@@ -44,7 +44,7 @@
                             </small></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="../loginPage.php">
+                        <a class="nav-link" href="./loginPage.php">
                             <i class="fas fa-user-alt mr-1 text-gray"></i>
                             登入
                         </a>

@@ -1,7 +1,7 @@
 <?php
 require_once '../checkSession.php';
 require_once '../db.inc.php';
-require_once '../template/BS-html-head.php';
+require_once '../template/admin-html-head.php';
 require_once './BS-header-admin.php';
 require_once '../template-cart/func-buildTree.php';
 require_once '../template-cart/func-getRecursiveCategoryIds.php'
@@ -12,7 +12,7 @@ require_once '../template-cart/func-getRecursiveCategoryIds.php'
         <div class="container">
             <div class="row px-4 px-lg-5 py-lg-4 align-items-center">
                 <div class="col-lg-6">
-                    <h1 class="h2 text-uppercase mb-0">Create Event</h1>
+                    <h1 class="h2 text-uppercase mb-0">編輯類別</h1>
                 </div>
 
             </div>
@@ -20,7 +20,7 @@ require_once '../template-cart/func-getRecursiveCategoryIds.php'
     </section>
     <section class="py-5">
         <!-- BILLING ADDRESS-->
-        <h2 class="h5 text-uppercase mb-4">活動資料</h2>
+        <h2 class="h5 text-uppercase mb-4">類別清單</h2>
         <div class="row">
             <div class="col-lg-8">
                 <form name="myForm" method="POST" action="./insert.php" enctype="multipart/form-data">
@@ -69,4 +69,4 @@ require_once '../template-cart/func-getRecursiveCategoryIds.php'
 </div>
 
 <?php require_once '../template/footer.php' ?>
-<?php require_once '../template/BS-html-foot.php' ?>
+<?php require_once '../template/admin-html-foot.php' ?>

@@ -9,7 +9,7 @@
                         <!-- Link--><a class="nav-link" href="admin.php">首頁</a>
                     </li>
                     <li class="nav-item">
-                        <!-- Link--><a class="nav-link" href="shop-admin.php">商店</a>
+                        <!-- Link--><a class="nav-link" href="shop-admin.php">商品列表</a>
                     </li>
                     <!-- <li class="nav-item">
                         <a class="nav-link" href="detail.html">Product detail</a>
@@ -18,14 +18,13 @@
                         <a class="nav-link dropdown-toggle" id="pagesDropdown" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">管理</a>
                         <div class="dropdown-menu mt-3" aria-labelledby="pagesDropdown">
                             <a class="dropdown-item border-0 transition-link" href="addItem.php">新增商品</a>
-                            <a class="dropdown-item border-0 transition-link" href="shop-admin.php">商品列表</a>
-                            <a class="dropdown-item border-0 transition-link" href="addEvent.php">新增類別</a>
+                            <a class="dropdown-item border-0 transition-link" href="category.php">編輯類別</a>
                             <a class="dropdown-item border-0 transition-link" href="detail.html"></a>
                         </div>
                     </li>
                 </ul>
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
+                    <!-- <li class="nav-item">
                         <a class="nav-link" href="../myCart.php">
                             <i class="fas fa-dolly-flatbed mr-1 text-gray"></i>
                             購物車
@@ -40,7 +39,7 @@
                                     ?>
                                 </span>)
                             </small></a>
-                    </li>
+                    </li> -->
                     <li class="nav-item">
                         <a class="nav-link" href="../logout.php">
                             <i class="fas fa-user-alt mr-1 text-gray"></i>

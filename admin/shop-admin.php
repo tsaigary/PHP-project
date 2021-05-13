@@ -1,7 +1,7 @@
 <?php
 session_start();
 require_once('../db.inc.php');
-require_once('../template/BS-html-head.php');
+require_once('../template/admin-html-head.php');
 require_once('./BS-header-admin.php');
 require_once("../template-cart/func-buildTree.php");
 require_once("../template-cart/func-getRecursiveCategoryIds.php");
@@ -18,7 +18,7 @@ require_once("../template-cart/func-getRecursiveCategoryIds.php");
                 <div class="col-lg-6 text-lg-right">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb justify-content-lg-end mb-0 px-0">
-                            <li class="breadcrumb-item"><a href="index.php">首頁</a></li>
+                            <li class="breadcrumb-item"><a href="admin.php">首頁</a></li>
                             <li class="breadcrumb-item active" aria-current="page">商品列表</li>
                         </ol>
                     </nav>
@@ -105,7 +105,7 @@ require_once("../template-cart/func-getRecursiveCategoryIds.php");
                                                 <!-- 調整圖片size跟位置 -->
                                                 <img style="height: 300px; object-fit:cover;" class="img-fluid w-100" src="../images/items/<?php echo $arr[$i]['itemImg']; ?>" alt="...">
                                             </a>
-                                            <div class="product-overlay">
+                                            <!-- <div class="product-overlay">
                                                 <ul class="mb-0 list-inline">
                                                     <li class="list-inline-item m-0 p-0">
                                                         <a class="btn btn-sm btn-outline-dark" href="#">
@@ -127,7 +127,7 @@ require_once("../template-cart/func-getRecursiveCategoryIds.php");
                                                         </a>
                                                     </li>
                                                 </ul>
-                                            </div>
+                                            </div> -->
                                         </div>
                                         <h6>
                                             <a class="reset-anchor" href="../detail.php"><?php echo $arr[$i]['itemName']; ?></a>
@@ -163,6 +163,6 @@ require_once("../template-cart/func-getRecursiveCategoryIds.php");
 
 
 <?php
-require_once('../template/BS-footer.php');
-require_once('../template/BS-html-foot.php');
+require_once('../template/footer.php');
+require_once('../template/admin-html-foot.php');
 ?>

@@ -1,10 +1,10 @@
 <?php
 require_once '../db.inc.php';
 require_once '../checkSession.php';
-require_once '../template/BS-html-head.php';
+require_once '../template/admin-html-head.php';
 require_once './BS-header-admin.php';
 require_once '../template-cart/func-buildTree.php';
-require_once '../template-cart/func-getRecursiveCategoryIds.php'
+require_once '../template-cart/func-getRecursiveCategoryIds.php';
 ?>
 
 
@@ -75,4 +75,4 @@ require_once '../template-cart/func-getRecursiveCategoryIds.php'
 </section>
 <!-- 測試區 -->
 <?php require_once '../template/footer.php' ?>
-<?php require_once '../template/BS-html-foot.php' ?>
+<?php require_once '../template/admin-html-foot.php' ?>
