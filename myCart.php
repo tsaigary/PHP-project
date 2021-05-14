@@ -19,8 +19,8 @@ require_once './template-cart/func-buildTree.php';
                     <div class="col-lg-6 text-lg-right">
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb justify-content-lg-end mb-0 px-0">
-                                <li class="breadcrumb-item"><a href="index.php">Home</a></li>
-                                <li class="breadcrumb-item active" aria-current="page">Cart</li>
+                                <li class="breadcrumb-item"><a href="index.php">首頁</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">購物車</li>
                             </ol>
                         </nav>
                     </div>
@@ -121,8 +121,8 @@ require_once './template-cart/func-buildTree.php';
                     <!-- CART NAV-->
                     <div class="bg-light px-4 py-3">
                         <div class="row align-items-center text-center">
-                            <div class="col-md-6 mb-3 mb-md-0 text-md-left"><a class="btn btn-link p-0 text-dark btn-sm" href="shop.php"><i class="fas fa-long-arrow-alt-left mr-2"> </i>Continue shopping</a></div>
-                            <div class="col-md-6 text-md-right"><a class="btn btn-outline-dark btn-sm" href="checkout.php">Procceed to checkout<i class="fas fa-long-arrow-alt-right ml-2"></i></a></div>
+                            <div class="col-md-6 mb-3 mb-md-0 text-md-left"><a class="btn btn-link p-0 text-dark btn-sm" href="shop.php"><i class="fas fa-long-arrow-alt-left mr-2"> </i>繼續購物</a></div>
+                            <div class="col-md-6 text-md-right"><a class="btn btn-outline-dark btn-sm" href="checkout.php">前往結帳<i class="fas fa-long-arrow-alt-right ml-2"></i></a></div>
                         </div>
                     </div>
                 </div>
@@ -132,14 +132,14 @@ require_once './template-cart/func-buildTree.php';
                         <div class="card-body">
                             <h5 class="text-uppercase mb-4">Cart total</h5>
                             <ul class="list-unstyled mb-0">
-                                <li class="d-flex align-items-center justify-content-between"><strong class="text-uppercase small font-weight-bold">Subtotal</strong><span class="text-muted small">$<?php echo $total ?></span></li>
+                                <li class="d-flex align-items-center justify-content-between"><strong class="text-uppercase small font-weight-bold">小計</strong><span class="text-muted small">$<?php echo $total ?></span></li>
                                 <li class="border-bottom my-2"></li>
-                                <li class="d-flex align-items-center justify-content-between mb-4"><strong class="text-uppercase small font-weight-bold">Total</strong><span>$<?php echo $total ?></span></li>
+                                <li class="d-flex align-items-center justify-content-between mb-4"><strong class="text-uppercase small font-weight-bold">總計</strong><span>$<?php echo $total ?></span></li>
                                 <li>
                                     <form action="#">
                                         <div class="form-group mb-0">
-                                            <input class="form-control" type="text" placeholder="Enter your coupon">
-                                            <button class="btn btn-dark btn-sm btn-block" type="submit"> <i class="fas fa-gift mr-2"></i>Apply coupon</button>
+                                            <input class="form-control" type="text" placeholder="輸入折扣碼">
+                                            <button class="btn btn-dark btn-sm btn-block" type="submit"> <i class="fas fa-gift mr-2"></i>使用折扣碼</button>
                                         </div>
                                     </form>
                                 </li>

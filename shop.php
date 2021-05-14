@@ -13,13 +13,13 @@ require_once("./template-cart/func-getRecursiveCategoryIds.php");
         <div class="container">
             <div class="row px-4 px-lg-5 py-lg-4 align-items-center">
                 <div class="col-lg-6">
-                    <h1 class="h2 text-uppercase mb-0">Shop</h1>
+                    <h1 class="h2 text-uppercase mb-0">商品一覽</h1>
                 </div>
                 <div class="col-lg-6 text-lg-right">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb justify-content-lg-end mb-0 px-0">
-                            <li class="breadcrumb-item"><a href="index.php">Home</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Shop</li>
+                            <li class="breadcrumb-item"><a href="index.php">首頁</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">商品一覽</li>
                         </ol>
                     </nav>
                 </div>
@@ -31,7 +31,7 @@ require_once("./template-cart/func-getRecursiveCategoryIds.php");
             <div class="row">
                 <!-- SHOP SIDEBAR-->
                 <div class="col-lg-3 order-2 order-lg-1">
-                    <h5 class="text-uppercase mb-4">Categories</h5>
+                    <h5 class="text-uppercase mb-4">商品種類</h5>
                     <div class="py-2 px-4 bg-dark text-white mb-3"><strong class="small text-uppercase font-weight-bold">美術館商品</strong></div>
                     <!-- 樹狀商品種類連結 -->
                     <?php buildTree($pdo, 0); ?>
@@ -67,6 +67,9 @@ require_once("./template-cart/func-getRecursiveCategoryIds.php");
                         </div>
                     </div>
                     <div class="row">
+
+                    <div id="001"></div>
+        
                         <!-- PRODUCT-->
 
                         <?php

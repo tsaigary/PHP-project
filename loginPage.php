@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once './db.inc.php';
 require_once './template/BS-html-head.php';
 require_once './template/BS-header.php';

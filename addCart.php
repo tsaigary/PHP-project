@@ -43,7 +43,7 @@ if ($stmt->rowCount() > 0) {
         "cartQty"   => $_POST["cartQty"]
     ];
 
-    header("Refresh: 0; url=./shop.php");
+    header("Refresh: 0; url=./shop.php#001");
     $objResponse['success'] = true;
     $objResponse['info'] = "已加入購物車";
     $objResponse['cartItemNum'] = count($_SESSION['cart']);
