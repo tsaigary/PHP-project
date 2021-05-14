@@ -27,6 +27,14 @@
                     </li> -->
                 </ul>
                 <ul class="navbar-nav ml-auto">
+                    <?php if (isset($_SESSION["username"])) { ?>
+                        <li class="navbar-nav">
+                            <a class="nav-link" href="./order.php">我的訂單</a>
+                        </li>
+                        <li class="navbar-nav">
+                            <a class="nav-link" href="./itemTracking.php">我的最愛</a>
+                        </li>
+                    <?php } ?>
                     <li class="nav-item">
                         <a class="nav-link" href="myCart.php">
                             <i class="fas fa-dolly-flatbed mr-1 text-gray"></i>
@@ -42,12 +50,10 @@
                                     ?>
                                 </span>)
                             </small></a>
+
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="./loginPage.php">
-                            <i class="fas fa-user-alt mr-1 text-gray"></i>
-                            登入
-                        </a>
+                        <?php require_once("./template/login.php") ?>
                     </li>
                 </ul>
             </div>

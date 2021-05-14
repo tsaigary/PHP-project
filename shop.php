@@ -103,7 +103,7 @@ require_once("./template-cart/func-getRecursiveCategoryIds.php");
                                             <div class="badge text-white badge-"></div>
                                             <a class="d-block" href="./detail.php?itemId=<?php echo $arr[$i]['itemId']; ?>">
                                                 <!-- 調整圖片size跟位置 -->
-                                                <img style="height: 300px; object-fit:cover;" class="img-fluid w-100" src="./images/items/<?php echo $arr[$i]['itemImg']; ?>" alt="...">
+                                                <img style="height: 250px; object-fit:cover;" class="img-fluid w-100" src="./images/items/<?php echo $arr[$i]['itemImg']; ?>" alt="...">
                                             </a>
                                             <div class="product-overlay">
                                                 <ul class="mb-0 list-inline">

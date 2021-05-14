@@ -3,8 +3,35 @@ require_once '../checkSession.php';
 require_once '../db.inc.php';
 require_once '../template/admin-html-head.php';
 require_once './BS-header-admin.php';
-require_once '../template-cart/func-buildTree.php';
-require_once '../template-cart/func-getRecursiveCategoryIds.php'
+// require_once '../template-cart/func-buildTree.php';
+require_once '../template-cart/func-getRecursiveCategoryIds.php';
+
+//建立種類列表
+function buildTree($pdo, $parentId = 0)
+{
+    $sql = "SELECT `categoryId`, `categoryName`, `categoryParentId`
+            FROM `categories` 
+            WHERE `categoryParentId` = ?";
+    $stmt = $pdo->prepare($sql);
+    $arrParam = [$parentId];
+    $stmt->execute($arrParam);
+    if ($stmt->rowCount() > 0) {
+        echo "<ul class='list-group list-group-flush'>";
+        $arr = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        for ($i = 0; $i < count($arr); $i++) {
+            echo "<li class='list-group-item'>";
+            echo "<input class='form-check-input' type='radio' name='categoryId' value='" . $arr[$i]['categoryId'] . "' />";
+            echo "<span class='text-small'>";
+            echo $arr[$i]['categoryName'];
+            echo "</span>";
+            echo " | <a class='reset-anchor small' href='./editCategory.php?editCategoryId=" . $arr[$i]['categoryId'] . "'>編輯</a>";
+            echo " | <a class='reset-anchor small' href='./deleteCategory.php?deleteCategoryId=" . $arr[$i]['categoryId'] . "'>刪除</a>";
+            buildTree($pdo, $arr[$i]['categoryId']);
+            echo "</li>";
+        }
+        echo "</ul>";
+    }
+}
 ?>
 <div class="container">
     <!-- HERO SECTION------------------------------------------------>
@@ -22,44 +49,17 @@ require_once '../template-cart/func-getRecursiveCategoryIds.php'
         <!-- BILLING ADDRESS-->
         <h2 class="h5 text-uppercase mb-4">類別清單</h2>
         <div class="row">
-            <div class="col-lg-8">
-                <form name="myForm" method="POST" action="./insert.php" enctype="multipart/form-data">
-                    <div class="row">
-                        <div class="col-lg-6 form-group">
-                            <label class="text-small text-uppercase" for="firstName">活動名稱</label>
-                            <input class="form-control form-control-lg" id="eventName" name="eventName" type="text" placeholder="輸入名稱">
-                        </div>
-                        <div class="col-lg-6 form-group">
-                            <label class="text-small text-uppercase" for="lastName">活動類別</label>
-                            <input class="form-control form-control-lg" id="eventClass" name="eventClass" type="text" placeholder="類別C/D">
-                        </div>
-                        <div class="col-lg-6 form-group">
-                            <label class="text-small text-uppercase">活動編號</label>
-                            <input class="form-control form-control-lg" id="eventId" name="eventId" type="text" placeholder="三碼編號，展覽0開頭，工作坊1開頭">
-                        </div>
-                        <div class="col-lg-6 form-group">
-                            <label class="text-small text-uppercase" for="phone">活動描述</label>
-                            <input class="form-control form-control-lg" id="eventDescription" name="eventDescription" type="text" placeholder="描述活動">
-                        </div>
-                        <div class="col-lg-6 form-group">
-                            <label class="text-small text-uppercase" for="company">開始日期</label>
-                            <input class="form-control form-control-lg" id="eventDateStart" name="eventDateStart" type=" text" placeholder="yyyy-mm-dd">
-                        </div>
-                        <div class="col-lg-6 form-group">
-                            <label class="text-small text-uppercase" for="company">結束日期</label>
-                            <input class="form-control form-control-lg" id="eventDateEnd" name="eventDateEnd" type=" text" placeholder="yyyy-mm-dd">
-                        </div>
+            <div class="col-lg-4">
+                <form name="myForm" method="POST" action="./insertCategory.php" enctype="multipart/form-data">
+                    <?php buildTree($pdo, 0); ?>
+                    <div class="row mt-4">
                         <div class="col-lg-12 form-group">
-                            <label class="text-small text-uppercase" for="address">活動票價</label>
-                            <input class="form-control form-control-lg" id="eventPrice" name="eventPrice" type="text" placeholder="輸入整數值不含字元">
-                        </div>
-                        <div class="col-lg-12 form-group">
-                            <label class="text-small text-uppercase" for="address">上傳圖片</label>
-                            <input class="form-control form-control-lg" type="file" name="eventImg">
+                            <label class="text-small text-uppercase" for="firstName">類別名稱</label>
+                            <input class="form-control form-control-lg" id="categoryName" name="categoryName" type="text" placeholder="輸入名稱">
                         </div>
 
                         <div class="col-lg-12 form-group">
-                            <input class="btn btn-dark" type="submit" name="smb" value="建立">
+                            <input class="btn btn-dark" type="submit" name="smb" value="新增">
                         </div>
                     </div>
                 </form>
